@@ -1,0 +1,9 @@
+/* Just for testing */
+h1 {
+    color: red;
+}
+
+.welcome_pic {
+    height: 300px;
+    width: auto;
+}

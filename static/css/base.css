@@ -1,0 +1,16 @@
+/* Body */
+body {
+    min-height: 75rem;
+    padding-top: 4.5 rem;
+}
+
+/* Just for testing - Titles in red */
+h1 {
+    color: red;
+}
+
+/* Image on the welcome page */
+img.welcome_pic {
+    height: 300px;
+    width: auto;
+}
