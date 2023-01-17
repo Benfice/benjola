@@ -8,5 +8,13 @@
         <p>Description: {{ resource.description }}</p>
         <p>Langue: {{ resource.language }}</p>
         <p>Lien: {{ resource.url }}</p>
+        <div>
+            <h3>Comments</h3>
+            <ul>
+                {% for comment in resource.comments.all %}
+                <li>{{ comment.comment }} ({{ comment.author }})</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock content %}

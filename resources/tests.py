@@ -1,17 +1,30 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Resource
+from .models import Resource, Comment
 
 
 class ResourceTests(TestCase):
     @classmethod
     def setUpTestData(cls):
+        cls.user = get_user_model().objects.create_user(
+            username="commentuser",
+            email="commentuser@email.com",
+            password="compass123",
+        )
+
         cls.resource = Resource.objects.create(
             title="Assimil - Apprendre le serbe",
             description="Méthode pour apprendre le serbe.",
             url="https://www.assimil.com/fr/9791-apprendre-le-serbe",
             language="FR",
+        )
+
+        cls.comment = Comment.objects.create(
+            resource=cls.resource,
+            author=cls.user,
+            comment="A great resource to learn Serbian!",
         )
 
     def test_resource_listing(self):
@@ -32,4 +45,5 @@ class ResourceTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, "Méthode pour apprendre le serbe.")
+        self.assertContains(response, "A great resource to learn Serbian!")
         self.assertTemplateUsed(response, "resources/resource_detail.html")
