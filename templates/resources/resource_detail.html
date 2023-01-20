@@ -4,6 +4,9 @@
 
 {% block content %}
     <div class="resource_detail">
+        {% if resource.teaser_picture %}
+            <img class="teaser_picture" src="{{ resource.teaser_picture.url }}" alt="{{ resource.title }}">
+        {% endif %}
         <h2><a href="">{{ resource.title }}</a></h2>
         <p>Description: {{ resource.description }}</p>
         <p>Langue: {{ resource.language }}</p>

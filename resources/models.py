@@ -26,6 +26,7 @@ class Resource(models.Model):
         max_length=30,
         choices=LANGUAGE_CHOICES,
         )
+    teaser_picture = models.ImageField(upload_to="teaser_pictures/", blank=True)
 
     def __str__(self):
         return self.title
