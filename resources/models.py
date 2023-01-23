@@ -28,6 +28,11 @@ class Resource(models.Model):
         )
     teaser_picture = models.ImageField(upload_to="teaser_pictures/", blank=True)
 
+    class Meta:
+        permissions = [
+            ("special_status", "Can see all resources"),
+        ]
+
     def __str__(self):
         return self.title
 
