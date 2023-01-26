@@ -21,6 +21,7 @@ class ResourceDetailView(
     template_name = "resources/resource_detail.html"
     login_url = "account_login"
     permission_required = "resources.special_status"
+    queryset = Resource.objects.all().prefetch_related('comments__author',)
 
 
 class SearchResultsListView(ListView):

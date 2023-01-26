@@ -26,6 +26,9 @@ urlpatterns = [
     # Local apps
     path("", include("pages.urls")),
     path("resources/", include("resources.urls")),
+    # django-debug-toolbar
+    path('__debug__/', include('debug_toolbar.urls')),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
+
