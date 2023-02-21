@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
     "resources.apps.ResourcesConfig",
+    "lessons.apps.LessonsConfig",
 ]
 
 MIDDLEWARE = [
