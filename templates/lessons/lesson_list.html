@@ -3,6 +3,7 @@
 {% block title %}Leçons{% endblock title %}
 
 {% block content %}
+    {% if user.is_authenticated %}<h2><a href="{% url 'lesson_new' %}">+ Ajouter une nouvelle leçon</a></h2>{% endif %}
     {% for lesson in lesson_list %}
         <div>
             <h2><a href="{{ lesson.get_absolute_url }}">{{ lesson.title }}</a></h2>

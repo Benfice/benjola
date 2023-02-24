@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ lesson.title }} - Supprimer{% endblock title %}
+
+{% block content %}
+<h1>Supprimer la leçon</h1>
+<form action="" method="post">{% csrf_token %}
+    <p>Voulez-vous vraiment supprimer cette leçon?</p>
+    <input type="submit" value="Supprimer">
+</form>
+{% endblock content %}
