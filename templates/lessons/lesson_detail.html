@@ -7,6 +7,7 @@
         <h2><a href="">{{ lesson.title }}</a></h2>
         <p>{{ lesson.body }}</p>
         <p>Auteur: {{ lesson.author }}</p>
+        <p>Date: {{ lesson.date|date:"d/m/Y" }}</p>
     </div>
 
     <p><a href="{% url 'lesson_edit' lesson.pk %}">+ Modifier la leçon</a></p>

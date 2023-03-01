@@ -2,6 +2,7 @@ import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 class Lesson(models.Model):
     id = models.UUIDField(
@@ -11,10 +12,11 @@ class Lesson(models.Model):
     )
     title = models.CharField(max_length=200)
     author = models.ForeignKey(
-        get_user_model(), 
+        settings.AUTH_USER_MODEL, 
         on_delete=models.CASCADE,
     )
     body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
